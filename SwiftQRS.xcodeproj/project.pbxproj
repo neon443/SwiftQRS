@@ -16,6 +16,8 @@
 		A93C4FA72D18B01800018BFD /* SwiftQRSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93C4FA62D18B01800018BFD /* SwiftQRSTests.swift */; };
 		A93C4FB12D18B01900018BFD /* SwiftQRSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93C4FB02D18B01900018BFD /* SwiftQRSUITests.swift */; };
 		A93C4FB32D18B01900018BFD /* SwiftQRSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93C4FB22D18B01900018BFD /* SwiftQRSUITestsLaunchTests.swift */; };
+		A9BFF0E12D19AE49008A5E24 /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BFF0E02D19AE49008A5E24 /* QRScanner.swift */; };
+		A9DF06FA2D195DB600D33DE5 /* SavedQRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DF06F92D195DB600D33DE5 /* SavedQRView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,9 @@
 		A93C4FAC2D18B01900018BFD /* SwiftQRSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftQRSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93C4FB02D18B01900018BFD /* SwiftQRSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftQRSUITests.swift; sourceTree = "<group>"; };
 		A93C4FB22D18B01900018BFD /* SwiftQRSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftQRSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A99DCD652D1A0511008BC5A0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A9BFF0E02D19AE49008A5E24 /* QRScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
+		A9DF06F92D195DB600D33DE5 /* SavedQRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedQRView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +84,7 @@
 		A93C4F832D18B01000018BFD = {
 			isa = PBXGroup;
 			children = (
+				A99DCD652D1A0511008BC5A0 /* README.md */,
 				A93C4F8E2D18B01000018BFD /* SwiftQRS */,
 				A93C4FA52D18B01800018BFD /* SwiftQRSTests */,
 				A93C4FAF2D18B01900018BFD /* SwiftQRSUITests */,
@@ -99,9 +105,11 @@
 		A93C4F8E2D18B01000018BFD /* SwiftQRS */ = {
 			isa = PBXGroup;
 			children = (
+				A9BFF0E02D19AE49008A5E24 /* QRScanner.swift */,
 				A93C4F8F2D18B01000018BFD /* SwiftQRSApp.swift */,
 				A93C4F912D18B01000018BFD /* Persistence.swift */,
 				A93C4F962D18B01000018BFD /* ContentView.swift */,
+				A9DF06F92D195DB600D33DE5 /* SavedQRView.swift */,
 				A93C4F982D18B01800018BFD /* Assets.xcassets */,
 				A93C4F9A2D18B01800018BFD /* SwiftQRS.entitlements */,
 				A93C4F932D18B01000018BFD /* SwiftQRS.xcdatamodeld */,
@@ -268,7 +276,9 @@
 				A93C4F902D18B01000018BFD /* SwiftQRSApp.swift in Sources */,
 				A93C4F922D18B01000018BFD /* Persistence.swift in Sources */,
 				A93C4F972D18B01000018BFD /* ContentView.swift in Sources */,
+				A9BFF0E12D19AE49008A5E24 /* QRScanner.swift in Sources */,
 				A93C4F952D18B01000018BFD /* SwiftQRS.xcdatamodeld in Sources */,
+				A9DF06FA2D195DB600D33DE5 /* SavedQRView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +435,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SwiftQRS/SwiftQRS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftQRS/Preview Content\"";
@@ -432,6 +443,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to your camera in order to scan QR codes.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -440,17 +452,19 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.SwiftQRS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -463,6 +477,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SwiftQRS/SwiftQRS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftQRS/Preview Content\"";
@@ -470,6 +485,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to your camera in order to scan QR codes.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -478,17 +494,19 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.SwiftQRS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
